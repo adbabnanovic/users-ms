@@ -6,9 +6,9 @@ export const getUserConnections = async (req: Request, res: Response) => {
   try {
     const user = await User.findById(req.params.user_id);
     if (!user) {
-      sendError(res, { message: 'User not found' })
+      sendError(res, { message: 'User not found' });
       return;
-    };
+    }
 
     const userConnections = await User.find({
       _id: { $in: user.connections },
@@ -32,7 +32,7 @@ export const createConnection = async (req: Request, res: Response) => {
     if (!userA || !userB) {
       sendError(res, { message: 'User not found' });
       return;
-    };
+    }
 
     await userA.update({ $addToSet: { connections: userB } });
     await userB.update({ $addToSet: { connections: userA } });

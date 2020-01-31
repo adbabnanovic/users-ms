@@ -1,9 +1,9 @@
 import { Response } from 'express';
 
 export interface iErrorMessage {
-  message: string
+  message: string;
 }
 
-export const sendError = (res: Response, err: iErrorMessage ): void => {
+export const sendError = (res: Response, err: iErrorMessage): void => {
   res.status(500).json(err);
 };

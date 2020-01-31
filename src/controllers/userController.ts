@@ -8,12 +8,12 @@ export const getUsers = async (req: Request, res: Response) => {
 
     res.json({
       message: 'Retrieved users',
-      data: users
+      data: users,
     });
-  } catch(err) {
+  } catch (err) {
     sendError(res, err);
   }
-}
+};
 
 export const createUser = async (req: Request, res: Response) => {
   try {
@@ -68,7 +68,7 @@ export const deleteUser = async (req: Request, res: Response) => {
       status: 'success',
       message: 'User deleted',
     });
-  } catch(err) {
+  } catch (err) {
     sendError(res, err);
   }
 };
