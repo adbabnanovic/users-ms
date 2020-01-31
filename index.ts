@@ -10,11 +10,14 @@ const port = process.env.PORT || 8080;
 app.use(
   bodyParser.urlencoded({
     extended: true,
-  }),
+  })
 );
 app.use(bodyParser.json());
 
-mongoose.connect('mongodb://localhost/resthub', { useUnifiedTopology: true, useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/resthub', {
+  useUnifiedTopology: true,
+  useNewUrlParser: true,
+});
 const db = mongoose.connection;
 
 app.get('/', (req, res) => res.send('Hello World with Express'));
